@@ -1,0 +1,57 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd":"${fileDirname}",
+            "args": [
+                "--is_training", 
+                "0", 
+                "--root_path",
+                "./dataset/",
+                "--data_path", 
+                "dim1.csv",
+                "--model_id",
+                "dim1_96_96",
+                "--model",
+                "Informer",
+                "--data",
+                "dim1",
+                "--features",
+                "M",
+                "--seq_len",
+                "96",
+                "--label_len", 
+                "48",
+                "--pred_len",
+                "96",
+                "--e_layers",
+                "2",
+                "--d_layers",
+                "1",
+                "--factor",
+                "3",
+                "--enc_in",
+                "9",
+                "--dec_in",
+                "9",
+                "--c_out",
+                "9",
+                "--des",
+                "Exp",
+                "--itr",
+                "1", 
+                "--learning_rate",
+                "0.00001"
+            ]
+        }
+    ]
+}
