@@ -10,7 +10,7 @@ model_name=Informer
 pretrained_model='./checkpoints/pretrained_source_domain_96_96_Informer_custom_ftM_sl96_ll48_pl96_dm64_nh8_el2_dl1_df256_fc3_ebtimeF_dtTrue_Exp_0'
 
 
-for data in s0.3548_m907 processed_data_55 HTV2 CAV-H
+for data in s0.3548_m907 HTV2 CAV-H
 do
     # test
     for pred_len in 96 
@@ -29,9 +29,9 @@ do
         --e_layers 2 \
         --d_layers 1 \
         --factor 3 \
-        --enc_in 7 \
-        --dec_in 7 \
-        --c_out 7 \
+        --enc_in 9 \
+        --dec_in 9 \
+        --c_out 9 \
         --learning_rate 0.00001 \
         --des 'Exp' \
         --itr 1  >logs/LongForecasting/$model_name'_'$data'_'$pred_len.log
@@ -56,9 +56,9 @@ do
         --e_layers 2 \
         --d_layers 1 \
         --factor 3 \
-        --enc_in 7 \
-        --dec_in 7 \
-        --c_out 7 \
+        --enc_in 9 \
+        --dec_in 9 \
+        --c_out 9 \
         --learning_rate 0.00001 \
         --des 'Exp' \
         --itr 1  >logs/LongForecasting/$model_name'_'$data'_'$pred_len'_finetuned.log'

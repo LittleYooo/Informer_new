@@ -221,16 +221,18 @@ class Dataset_Custom(Dataset):
 
     def __read_data__(self):
         self.scaler = StandardScaler()
-        df_raw_ori = pd.read_csv(os.path.join(self.root_path,
+        # df_raw_ori = pd.read_csv(os.path.join(self.root_path,
+        #                                   self.data_path))
+        # df_raw = df_raw_ori.drop(df_raw_ori.columns[-1], axis=1)
+        df_raw = pd.read_csv(os.path.join(self.root_path,
                                           self.data_path))
-        df_raw = df_raw_ori.drop(df_raw_ori.columns[-1], axis=1)
         '''
         df_raw.columns: ['date', ...(other features), target feature]
         '''
         cols = list(df_raw.columns)
         if self.features == 'S':
             cols.remove(self.target)
-        cols.remove('date')
+        # cols.remove('date')
         # print(cols)
         num_train = int(len(df_raw) * (0.7 if not self.train_only else 1))
         num_test = int(len(df_raw) * 0.2)
@@ -241,8 +243,9 @@ class Dataset_Custom(Dataset):
         border2 = border2s[self.set_type]
 
         if self.features == 'M' or self.features == 'MS':
-            df_raw = df_raw[['date'] + cols]
-            cols_data = df_raw.columns[1:]
+            # df_raw = df_raw[['date'] + cols]
+            # cols_data = df_raw.columns[1:]
+            cols_data = df_raw.columns
             df_data = df_raw[cols_data]
         elif self.features == 'S':
             df_raw = df_raw[['date'] + cols + [self.target]]
